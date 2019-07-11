@@ -5,7 +5,7 @@ module.exports.getAllCategory= (req, res) =>{
   //Logic tampil data
   // Find all product
 	Category.findAll().then(category=> {
-	  res.json(category;
+	  res.json(category);
 	}).catch((error)=>{
 		console.log(error);
 	});

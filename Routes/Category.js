@@ -5,19 +5,16 @@ var router = express.Router()
 var categoryController = require("../controllers/category");
 
 // Set Get Rute All Product
-router.get('/', categoryController.getAllCategory);
+router.get('/all', categoryController.getAllCategory);
 
 // Set Get Rute Find Product by PK
-router.get('/query/find/:id', categoryController.getFindCategoryId);
+router.get('/find/:id', categoryController.getFindCategoryId);
 
 // Set Get Rute All Product by name
-router.get('/query/find/NamaCategory/:nama', CategoryController.getFindNameCategory);
+router.get('/find/nama/:nama', categoryController.getFindNameCategory);
 
 // Set Get Rute All Product by name
 router.get('/init', categoryController.setCategoryBulk);
-
-// Set Get Rute Form
-router.get('/add', categoryController.getForm);
 
 // Set Post rute
 router.post('/', categoryController.postAddCategory);
