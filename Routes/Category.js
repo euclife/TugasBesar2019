@@ -1,4 +1,6 @@
 var express = require('express')
+const auth = require('../Configs/auth');
+
 var router = express.Router()
 
 //Panggil dulu file controllernya
@@ -14,9 +16,9 @@ router.get('/find/:id', categoryController.getFindCategoryId);
 router.get('/find/nama/:nama', categoryController.getFindNameCategory);
 
 // Set Get Rute All Product by name
-router.get('/init', categoryController.setCategoryBulk);
+router.get('/init', auth.verifyToken, categoryController.setCategoryBulk);
 
 // Set Post rute
-router.post('/', categoryController.postAddCategory);
+router.post('/',auth.verifyToken, categoryController.postAddCategory);
 
 module.exports = router
