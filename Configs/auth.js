@@ -1,8 +1,8 @@
-module.exports.verifyToken = (req,res) =>{
-	const bearerHeader = req.header['authorization'];
+module.exports.verifyToken = (req,res,next) =>{
+	const bearerHeader = req.headers['authorization'];
 
 	if (typeof bearerHeader !== 'undefined') {
-		const bearer = bearerHeader.split('');
+		const bearer = bearerHeader.split(' ');
 		const bearerToken = bearer[1];
 		req.token = bearerToken;
 		next();

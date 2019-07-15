@@ -1,28 +1,26 @@
-//Panggil Model Untuk di gunakan 
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+dotenv.config();
 const Category = require('../models/category');
 
 module.exports.getAllCategory= (req, res) =>{
-  //Logic tampil data
-  // Find all product
   Category.findAll().then(category=> {
-  	res.json(category);
+	res.json(category);
   }).catch((error)=>{
-  	console.log(error);
+	console.log(error);
   });
 }
 
 module.exports.getFindCategoryId = (req, res) =>{
-  // Find by primary key
   Category.findByPk(req.params.id).then(category => {
-  	res.json(category)
+	res.json(category)
   })
 
 }
 
 module.exports.getFindCategoryName = (req, res) =>{
-  // Find by name
   Category.findAll({ where: { NamaCategory: req.params.nama } }).then(category => {
-  	res.json(category)
+	res.json(category)
   })
 
 }
@@ -33,6 +31,7 @@ exports.setCategoryBulk = (req, res, next) => {
 		if (error) {
 			res.sendStatus(403);
 		}else{
+			if (authData['username']=="admin") {
 			Category.bulkCreate([
 			{
 				NamaCategory : 'Drama'
@@ -52,10 +51,15 @@ exports.setCategoryBulk = (req, res, next) => {
 			]).then(category => {
 				res.send('data berhasil disimpan');
 			})
+		}else{
+			res.sendStatus(403);
 		}
+	}
 	});
 	
 }
+
+
 module.exports.postAddCategory = (req, res) =>{
 	jwt.verify(req.token, process.env.SECRETKEY, (error,authData)=>{
 		if (error) {
