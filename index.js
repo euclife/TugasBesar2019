@@ -1,15 +1,44 @@
 const express = require('express');
+const sequelize = require('./configs/sequelize');
+const bodyParser = require('body-parser');
 
 const app = express();
 
+const Buku = require('./models/buku');
+const Category = require('./models/category');
+const User = require('./models/user');
+
+
+Buku.belongsTo(Category);
+
 
 const bukuRouter = require('./Routes/Buku');
+const categoryRouter = require('./Routes/Category');
+const userRouter = require('./Routes/User');
 
-const sequelize = require('./Configs/Sequelize');
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
 
-const Buku = require('./Models/Buku');
+app.use(bukuRouter);
+app.use(categoryRouter);
+app.use(userRouter);
 
-app.listen(3000, () => {
+app.use('/buku',bukuRouter);
+app.use('/category',categoryRouter);
+app.use('/user',userRouter);
+
+
+sequelize
+ .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+
+
+app.listen(3102, () => {
     console.log('server started');
     sequelize.sync();
 })

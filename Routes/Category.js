@@ -13,7 +13,8 @@ router.get('/all', categoryController.getAllCategory);
 router.get('/find/:id', categoryController.getFindCategoryId);
 
 // Set Get Rute All Product by name
-router.get('/find/nama/:nama', categoryController.getFindNameCategory);
+
+router.get('/find/nama/:nama', categoryController.getFindCategoryName);
 
 // Set Get Rute All Product by name
 router.get('/init', auth.verifyToken, categoryController.setCategoryBulk);

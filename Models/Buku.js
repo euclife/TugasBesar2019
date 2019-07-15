@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = require('../Configs/Sequelize');
+const sequelize = require('../configs/sequelize');
 
 class Buku extends Sequelize.Model {}
 
