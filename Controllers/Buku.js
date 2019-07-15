@@ -4,6 +4,56 @@ dotenv.config();
 
 const Buku = require('../Models/Buku');
 
+module.exports.init = (req,res) => {
+	jwt.verify(req.token, process.env.SECRETKEY, (error,authData)=>{
+		if (error) {
+			res.sendStatus(403);
+		}else{
+			if (authData['roles']=="admin") {
+				Buku.bulkCreate([
+			{
+				Nama : 'The Lost Art of Closing',
+				Halaman : 160,
+				Harga : 82240,
+				Stok : 11,
+				CategoryId : 1
+			},
+			{
+				Nama : 'The Calling',
+				Halaman : 200,
+				Harga : 57600,
+				Stok : 32,
+				CategoryId : 1
+			},
+			{
+				Nama : 'Terapi Kebiasaaan Positif',
+				Halaman : 160,
+				Harga : 84150,
+				Stok : 22, 
+				CategoryId : 2
+			},
+			{
+				Nama : 'Jack Ma: Jurus Sukses',
+				Halaman : 160,
+				Harga : 39950,
+				Stok : 21, 
+				CategoryId : 2
+			},
+			{
+				Nama : 'Perihal Cinta Kita Semua Pemula',
+				Halaman : 160,
+				Harga : 84150,
+				Stok : 22, 
+				CategoryId : 2
+			},
+			]).then(category => {
+				res.send('data berhasil disimpan');
+			})
+			}   
+		}
+	})
+}
+
 module.exports.getAllBuku = (req, res) => {
 	Buku
 	.findAll()
