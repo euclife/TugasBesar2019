@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = require('../configs/sequelize');
+const sequelize = require('../Configs/Sequelize');
 
 class Keranjang extends Sequelize.Model {}
 
