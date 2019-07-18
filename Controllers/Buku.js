@@ -61,7 +61,7 @@ module.exports.getAllBuku = (req, res) => {
 		res.json(buku);
 	})
 	.catch((error) => {
-		console.log(error);
+		res.json(error);
 	}) 
 }
 
@@ -82,8 +82,8 @@ module.exports.postAddBuku = (req, res) =>{
 				var Halaman = req.body.halaman;
 				var Stok = req.body.stok;
 				var Harga = req.body.harga;
-				var CategoryId = req.body.categoryid;
-
+				var CategoryId = req.body.categoryId;
+				console.log(CategoryId);
 				Buku.create({
 					Nama:       Nama,
 					Halaman:    Halaman,
@@ -92,10 +92,10 @@ module.exports.postAddBuku = (req, res) =>{
 					CategoryId: CategoryId
 				})
 				.then(buku => {
-					console.log(buku.toJSON());
+					res.json(buku)
 				});
 			}else{
-				res.sendStatus(403);
+				res.send('Anda Harus Login Sebagai Admin');
 			}
 		}
 	});
@@ -108,27 +108,31 @@ module.exports.putIndexBuku = (req, res) =>{
 			res.sendStatus(403);
 		}else{
 			if (authData['roles']=="admin") {
-				Buku.find({ 
-					where: { 
-						Id:     req.body.id
-					} })
-				.on('success', function (buku) {
-					if (buku) {
-						buku.update({
-							Nama:       Nama,
-							Halaman:    Halaman,
-							Harga:      Harga,
-							CategoryId: CategoryId
-						})
-						.success(function () {})
-					}
-				})
-			}else{
+				var Id = req.body.id;
+				var Nama = req.body.name;
+				var Halaman = req.body.halaman;
+				var Harga = req.body.harga;
+				var CategoryId = req.body.categoryId;
+
+				Buku.update({
+  								Nama:       Nama,
+								Halaman:    Halaman,
+								Harga:      Harga,
+								CategoryId: CategoryId
+						}, {
+  						where: { 
+								Id:    Id
+								}
+						}).then(buku => {
+							res.json("Data Berhasil di Perbaharui");
+						});
+			}
+			else{
 				res.sendStatus(403);
 			}
-		}   
-	})
-}
+		}
+	}
+)}
 
 
 
@@ -140,7 +144,7 @@ module.exports.deleteBuku = (req, res) =>{
 			if (authData['roles']=="admin") {
 				Buku.destroy({
 					where: {
-						Id: req.params.id
+						Id: req.body.id
 					}
 				})
 				.then(function (deletedRecord) {
@@ -162,27 +166,40 @@ module.exports.deleteBuku = (req, res) =>{
 	})
 }       
 
-module.exports.bukuTerbanyak = (req, res) =>{
+module.exports.bukuTerbaru = (req, res) =>{
 	jwt.verify(req.token, process.env.SECRETKEY, (error,authData)=>{
 		if (error) {
 			res.sendStatus(403);
 		}else{
-			Buku.find({
+			Buku.findOne({
 				order: [
-				['stok', 'DESC'],
+				['createdAt', 'DESC'],
 				]
 			})
 			.then((buku) => {
 				res.json(buku);
 			})
 			.catch((error) => {
-				console.log(error);
+				res.json(error);
 			}) 
 		}   
 	})
-	
+} 
+
+//Mencati Buku Berdasarkan Kategori
+
+module.exports.bukuCategory = (req, res) =>{
+	var categoryId = req.params.id;
+	Buku.findAll({
+		where: [
+		['categoryId', categoryId],
+		]
+	})
+	.then((buku) => {
+		res.json(buku);
+	})
+	.catch((error) => {
+		res.json(error);
+	}) 
 }   
-
-
-
-
+	 

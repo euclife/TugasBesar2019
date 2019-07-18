@@ -10,7 +10,9 @@ router.put('/',auth.verifyToken, bukuController.putIndexBuku);
 router.post('/',auth.verifyToken, bukuController.postAddBuku);
 router.delete('/',auth.verifyToken, bukuController.deleteBuku);
 
+router.get('/init',auth.verifyToken, bukuController.init);
 router.get('/find/:id', bukuController.getFindBukuId);
-router.get('/terbanyak',auth.verifyToken, bukuController.bukuTerbanyak);
+router.get('/terbaru',auth.verifyToken, bukuController.bukuTerbaru);
+router.get('/category/:id',auth.verifyToken, bukuController.bukuCategory);
 
 module.exports = router;

@@ -15,7 +15,6 @@ module.exports.getFindCategoryId = (req, res) =>{
   Category.findByPk(req.params.id).then(category => {
 	res.json(category)
   })
-
 }
 
 module.exports.getFindCategoryName = (req, res) =>{
@@ -26,12 +25,12 @@ module.exports.getFindCategoryName = (req, res) =>{
 }
 
 
-exports.setCategoryBulk = (req, res, next) => {
+exports.setCategoryBulk = (req, res) => {
 	jwt.verify(req.token, process.env.SECRETKEY, (error,authData)=>{
 		if (error) {
 			res.sendStatus(403);
 		}else{
-			if (authData['username']=="admin") {
+			if (authData['roles']=="admin") {
 			Category.bulkCreate([
 			{
 				NamaCategory : 'Drama'
@@ -51,10 +50,10 @@ exports.setCategoryBulk = (req, res, next) => {
 			]).then(category => {
 				res.send('data berhasil disimpan');
 			})
-		}else{
-			res.sendStatus(403);
+			}else{
+				res.send("Anda Harus Login Menggunakan Admin");
+			}
 		}
-	}
 	});
 	
 }
@@ -66,15 +65,16 @@ module.exports.postAddCategory = (req, res) =>{
 			res.sendStatus(403);
 		}else{
 			
-			var NamaCategory = req.body.name;
+			var NamaCategory = req.body.NamaCategory;
 
 			Category.create({
 				NamaCategory: NamaCategory
 			})
 			.then(category => {
-				console.log(category.toJSON());
+				res.json(category);
 			});
 		}
 	});
-
 }
+
+

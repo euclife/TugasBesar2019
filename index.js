@@ -9,7 +9,6 @@ const Category = require('./Models/Category');
 const User = require('./Models/User');
 const Keranjang = require('./Models/Keranjang');
 
-Buku.belongsTo(Category);
 
 const bukuRouter = require('./Routes/Buku');
 const categoryRouter = require('./Routes/Category');
@@ -26,6 +25,7 @@ app.use(userRouter);
 app.use('/buku',bukuRouter);
 app.use('/category',categoryRouter);
 app.use('/user',userRouter);
+app.use('/keranjang',keranjangRouter);
 
 
 // sequelize
@@ -40,5 +40,5 @@ app.use('/user',userRouter);
 
 app.listen(3102, () => {
     console.log('server started');
-    // sequelize.sync();
+    sequelize.sync();
 })

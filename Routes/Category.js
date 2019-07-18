@@ -6,8 +6,6 @@ var router = express.Router()
 //Panggil dulu file controllernya
 var categoryController = require("../Controllers/Category");
 
-// Set Get Rute All Product
-router.get('/all', categoryController.getAllCategory);
 
 // Set Get Rute Find Product by PK
 router.get('/find/:id', categoryController.getFindCategoryId);
@@ -17,8 +15,8 @@ router.get('/find/:id', categoryController.getFindCategoryId);
 router.get('/find/nama/:nama', categoryController.getFindCategoryName);
 
 // Set Get Rute All Product by name
-router.get('/init', auth.verifyToken, categoryController.setCategoryBulk);
 
+router.get('/',  categoryController.getAllCategory);
 // Set Post rute
 router.post('/',auth.verifyToken, categoryController.postAddCategory);
 

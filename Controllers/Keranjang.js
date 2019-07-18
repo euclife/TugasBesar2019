@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const Keranjang = require('../Models/Keranjang');
 
-module.exports.getAllKeranjang= (req, res) =>{
+module.exports.getAll= (req, res) =>{
 	Keranjang.findAll().then(Keranjang=> {
 		res.json(Keranjang);
 	}).catch((error)=>{
@@ -20,7 +20,9 @@ module.exports.getFindKeranjangId = (req, res) =>{
 module.exports.getFindKeranjangUserId = (req, res) =>{
 	Keranjang.findAll({ where: { userId: req.params.userId } }).then(keranjang => {
 		res.json(keranjang)
-	})
+	}).then(Keranjang => {
+		res.json(category)
+	});
 }
 
 
@@ -29,16 +31,14 @@ module.exports.postAddKeranjang = (req, res) =>{
 				if (error) {
 						res.sendStatus(403);
 				}else{
-					var banyak = req.body.banyak;
-							if (authData['roles']=="user") {
-						var banyak = req.body.idbuku;
+					if (authData['roles']=="user") {
+						var bukuId = req.body.bukuId;
 						Keranjang.create({
-								banyak: banyak,
 								userId: authData['id'],
-								bukuId
+								bukuId : bukuId
 						})
 						.then(Keranjang => {
-								console.log(Keranjang.toJSON());
+								res.json(Keranjang);
 						});
 				}else{
 					res.sendStatus(403);
