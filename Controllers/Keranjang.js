@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
-const Keranjang = require('../models/Keranjang');
+const Keranjang = require('../Models/Keranjang');
 
 module.exports.getAllKeranjang= (req, res) =>{
 	Keranjang.findAll().then(Keranjang=> {
@@ -29,10 +29,13 @@ module.exports.postAddKeranjang = (req, res) =>{
 				if (error) {
 						res.sendStatus(403);
 				}else{
-						if (authData['roles']=="user") {
-						var banyak = req.body.banyak;
+					var banyak = req.body.banyak;
+							if (authData['roles']=="user") {
+						var banyak = req.body.idbuku;
 						Keranjang.create({
-								NamaKeranjang: NamaKeranjang
+								banyak: banyak,
+								userId: authData['id'],
+								bukuId
 						})
 						.then(Keranjang => {
 								console.log(Keranjang.toJSON());

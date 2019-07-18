@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
-const Category = require('../models/category');
+const Category = require('../Models/Category');
 
 module.exports.getAllCategory= (req, res) =>{
   Category.findAll().then(category=> {

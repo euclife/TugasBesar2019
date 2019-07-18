@@ -4,7 +4,7 @@ const auth = require('../Configs/auth');
 var router = express.Router()
 
 //Panggil dulu file controllernya
-var categoryController = require("../controllers/category");
+var categoryController = require("../Controllers/Category");
 
 // Set Get Rute All Product
 router.get('/all', categoryController.getAllCategory);

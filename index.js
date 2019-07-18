@@ -1,17 +1,15 @@
 const express = require('express');
-const sequelize = require('./configs/sequelize');
+const sequelize = require('./Configs/Sequelize');
 const bodyParser = require('body-parser');
 
 const app = express();
 
-const Buku = require('./models/buku');
-const Category = require('./models/category');
-const User = require('./models/user');
-const Keranjang = require('./models/keranjang');
+const Buku = require('./Models/Buku');
+const Category = require('./Models/Category');
+const User = require('./Models/User');
+const Keranjang = require('./Models/Keranjang');
 
 Buku.belongsTo(Category);
-Keranjang.belongsTo(Buku);
-Keranjang.belongsTo(User);
 
 const bukuRouter = require('./Routes/Buku');
 const categoryRouter = require('./Routes/Category');
