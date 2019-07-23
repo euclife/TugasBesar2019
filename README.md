@@ -12,7 +12,7 @@ Merupakan Program Node JS menggunakan framework Express JS
 ## IP Address
 
 ```
-159.69.123.2:3102
+45.13.132.233:3102
 ```
 
 ## Persiapan
@@ -20,7 +20,7 @@ Merupakan Program Node JS menggunakan framework Express JS
 Buatlah Akun terlebih dahulu dengan API Register
 
 ```url
-159.69.123.2:3102/user/register
+45.13.132.233:3102/user/register
 ```
 
 * Method : POST
@@ -42,7 +42,7 @@ Untuk Roles terdapat 2 pilihan yaitu
 Untuk Mendapatkan Access Token
 
 ```url
-159.69.123.2:3102/user/login
+45.13.132.233:3102/user/login
 ```
 
 * Method : POST
@@ -59,9 +59,88 @@ Username di isikan sesuai yang pernah di buat pada saat register
 
 Berikut merupakan List API Untuk User Tidak Perlu Login Terlebih Dahulu
 
-###
-Lihat Semua Buku
+### Lihat Semua Buku
 ```url
-159.69.123.2:3102/buku
+45.13.132.233:3102/buku
 ```
 * Mehtod : GET
+
+### Add Buku
+```url
+45.13.132.233:3102/buku
+```
+#### Mehtod : POST
+#### Level : ADMIN
+#### Parameter : 
+* name
+* halaman
+* harga
+* categoryId
+
+### Update Buku
+```url
+45.13.132.233:3102/buku
+```
+#### Mehtod : PUT
+#### Level : ADMIN
+#### Parameter : 
+* id
+* name
+* halaman
+* harga
+* categoryId
+
+### Hapus Buku
+```url
+45.13.132.233:3102/buku
+```
+#### Mehtod : DELETE
+#### Level : ADMIN
+#### Parameter : 
+* id
+
+### Cari Buku
+```url
+45.13.132.233:3102/buku/:id
+```
+#### Mehtod : GET
+#### Parameter : 
+* id
+
+### Tambah Kategori
+```url
+45.13.132.233:3102/category
+```
+#### Mehtod : POST
+#### Level : ADMIN
+#### Parameter : 
+* NamaCategory
+
+### Lihat Semua Category
+```url
+45.13.132.233:3102/category
+```
+#### Mehtod : GET
+
+### Order Buku
+```url
+45.13.132.233:3102/keranjang
+```
+#### Mehtod : POST
+#### Level : USER
+#### Parameter : 
+* bukuId
+
+
+### List Semua Order
+```url
+45.13.132.233:3102/keranjang
+```
+#### Mehtod : GET
+#### Parameter : 
+* bukuId
+
+
+
+
+
