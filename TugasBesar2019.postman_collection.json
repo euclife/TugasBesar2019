@@ -1,0 +1,401 @@
+{
+	"info": {
+		"_postman_id": "e0a1c037-e2cd-49a3-bfc2-ae1941f47606",
+		"name": "TugasBesar2019",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\"\t:\"chandra3\",\n\t\"password\"\t:\"dicari97a\",\n\t\"roles\"\t\t:\"user\"\n}"
+				},
+				"url": {
+					"raw": "http://45.13.132.233:3102/user/register",
+					"protocol": "http",
+					"host": [
+						"45",
+						"13",
+						"132",
+						"233"
+					],
+					"port": "3102",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\"\t: \"chandra2\",\n\t\"password\"\t: \"dicari97a\"\n}"
+				},
+				"url": {
+					"raw": "http://45.13.132.233:3102/user/login",
+					"protocol": "http",
+					"host": [
+						"45",
+						"13",
+						"132",
+						"233"
+					],
+					"port": "3102",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Buku",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJjaGFuZHJheiIsInJvbGVzIjoiYWRtaW4iLCJpYXQiOjE1NjM0Mzg2NjV9.mE7KVV__I-3gTjvkP_pBNuah-XHIm35JoMIMWKqmnYU",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Buku Baru\",\n\t\"halaman\": 12,\n\t\"harga\": 12000,\n\t\"categoryId\" :2\n}"
+				},
+				"url": {
+					"raw": "http://45.13.132.233:3102/buku/",
+					"protocol": "http",
+					"host": [
+						"45",
+						"13",
+						"132",
+						"233"
+					],
+					"port": "3102",
+					"path": [
+						"buku",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buku Initialize",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJjaGFuZHJheiIsInJvbGVzIjoiYWRtaW4iLCJpYXQiOjE1NjM0Mzg2NjV9.mE7KVV__I-3gTjvkP_pBNuah-XHIm35JoMIMWKqmnYU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://45.13.132.233:3102/buku/",
+					"protocol": "http",
+					"host": [
+						"45",
+						"13",
+						"132",
+						"233"
+					],
+					"port": "3102",
+					"path": [
+						"buku",
+						""
+					]
+				},
+				"description": "Bulk Buku"
+			},
+			"response": []
+		},
+		{
+			"name": "Lihat Semua Buku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://45.13.132.233:3102/buku",
+					"protocol": "http",
+					"host": [
+						"45",
+						"13",
+						"132",
+						"233"
+					],
+					"port": "3102",
+					"path": [
+						"buku"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Categpry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJjaGFuZHJheiIsInJvbGVzIjoiYWRtaW4iLCJpYXQiOjE1NjM0NDU4NTZ9.cmYFnYBcwtJDpBcoSd0CKFWKe6qDOxTp-vYer2dcm3Q",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"NamaCategory\" : \"\"\n}"
+				},
+				"url": {
+					"raw": "45.13.132.233:3102/category/",
+					"host": [
+						"45",
+						"13",
+						"132",
+						"233"
+					],
+					"port": "3102",
+					"path": [
+						"category",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lihat Semua kategori",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "45.13.132.233:3102/category/",
+					"host": [
+						"45",
+						"13",
+						"132",
+						"233"
+					],
+					"port": "3102",
+					"path": [
+						"category",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Semua Buku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "45.13.132.233:3102/buku",
+					"host": [
+						"45",
+						"13",
+						"132",
+						"233"
+					],
+					"port": "3102",
+					"path": [
+						"buku"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Buku",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJjaGFuZHJheiIsInJvbGVzIjoiYWRtaW4iLCJpYXQiOjE1NjM0NDU4NTZ9.cmYFnYBcwtJDpBcoSd0CKFWKe6qDOxTp-vYer2dcm3Q",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\" : 1,\n\t\"name\" : \"edited\",\n\t\"halaman\" : \"123222\",\n\t\"categoryId\" : \"3\",\n\t\"harga\"\t\t: 20000\n}"
+				},
+				"url": {
+					"raw": "45.13.132.233:3102/buku",
+					"host": [
+						"45",
+						"13",
+						"132",
+						"233"
+					],
+					"port": "3102",
+					"path": [
+						"buku"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cari BUku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://45.13.132.233:3102/buku/find/1",
+					"protocol": "http",
+					"host": [
+						"45",
+						"13",
+						"132",
+						"233"
+					],
+					"port": "3102",
+					"path": [
+						"buku",
+						"find",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hapus Buku",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJjaGFuZHJhMiIsInJvbGVzIjoiYWRtaW4iLCJpYXQiOjE1NjM4OTYxODZ9.XxMmsPWUYWz7ouPKIhwYHnvmVXMryUO_4p2RQ8_bdZI",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":6\n}"
+				},
+				"url": {
+					"raw": "http://45.13.132.233:3102/buku/",
+					"protocol": "http",
+					"host": [
+						"45",
+						"13",
+						"132",
+						"233"
+					],
+					"port": "3102",
+					"path": [
+						"buku",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Buku",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJjaGFuZHJhemFhIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTYzNDQ5Nzc0fQ.Uk9nkNmGohwPgtH8jSQgqxr2rh0oJbvm4_D7gPjO7vI",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"bukuId\" : 2\n}"
+				},
+				"url": {
+					"raw": "localhost:3102/keranjang/",
+					"host": [
+						"localhost"
+					],
+					"port": "3102",
+					"path": [
+						"keranjang",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Semua Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3102/keranjang",
+					"host": [
+						"localhost"
+					],
+					"port": "3102",
+					"path": [
+						"keranjang"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

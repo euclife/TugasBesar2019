@@ -28,17 +28,17 @@ app.use('/user',userRouter);
 app.use('/keranjang',keranjangRouter);
 
 
-// sequelize
-//  .authenticate()
-//   .then(() => {
-//     console.log('Connection has been established successfully.');
-//   })
-//   .catch(err => {
-//     console.error('Unable to connect to the database:', err);
-//   });
+sequelize
+ .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 
 app.listen(3102, () => {
     console.log('server started');
-    sequelize.sync();
+    // sequelize.sync();
 })
