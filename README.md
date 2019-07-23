@@ -12,7 +12,7 @@ Merupakan Program Node JS menggunakan framework Express JS
 ## IP Address
 
 ```
-159.69.123.2:3102
+45.13.132.233:3102
 ```
 
 ## Persiapan
@@ -20,7 +20,7 @@ Merupakan Program Node JS menggunakan framework Express JS
 Buatlah Akun terlebih dahulu dengan API Register
 
 ```url
-159.69.123.2:3102/user/register
+45.13.132.233:3102/user/register
 ```
 
 * Method : POST
@@ -42,7 +42,7 @@ Untuk Roles terdapat 2 pilihan yaitu
 Untuk Mendapatkan Access Token
 
 ```url
-159.69.123.2:3102/user/login
+45.13.132.233:3102/user/login
 ```
 
 * Method : POST
@@ -62,6 +62,44 @@ Berikut merupakan List API Untuk User Tidak Perlu Login Terlebih Dahulu
 ###
 Lihat Semua Buku
 ```url
-159.69.123.2:3102/buku
+45.13.132.233:3102/buku
 ```
 * Mehtod : GET
+
+###
+Add Buku
+```url
+45.13.132.233:3102/buku
+```
+* Mehtod : POST
+Parameter : 
+* name
+* halaman
+* harga
+* categoryId
+
+###
+Update Buku
+```url
+45.13.132.233:3102/buku
+```
+* Mehtod : PUT
+Parameter : 
+* id
+* name
+* halaman
+* harga
+* categoryId
+
+###
+Hapus Buku
+```url
+45.13.132.233:3102/buku
+```
+* Mehtod : DELETE
+Parameter : 
+* id
+
+
+
+
