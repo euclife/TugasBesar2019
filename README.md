@@ -59,15 +59,13 @@ Username di isikan sesuai yang pernah di buat pada saat register
 
 Berikut merupakan List API Untuk User Tidak Perlu Login Terlebih Dahulu
 
-###
-Lihat Semua Buku
+### Lihat Semua Buku
 ```url
 45.13.132.233:3102/buku
 ```
 * Mehtod : GET
 
-###
-Add Buku
+### Add Buku
 ```url
 45.13.132.233:3102/buku
 ```
@@ -78,8 +76,7 @@ Add Buku
 * harga
 * categoryId
 
-###
-Update Buku
+### Update Buku
 ```url
 45.13.132.233:3102/buku
 ```
@@ -91,8 +88,7 @@ Update Buku
 * harga
 * categoryId
 
-###
-Hapus Buku
+### Hapus Buku
 ```url
 45.13.132.233:3102/buku
 ```
