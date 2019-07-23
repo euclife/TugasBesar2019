@@ -4,7 +4,7 @@ Merupakan Program Node JS menggunakan framework Express JS
 
 Untuk List API file POSTMAN (tinggal di Import Saja di POSTMAN) 
 
-[TugasBesar2019 postman_collection](https://raw.githubusercontent.com/euclife/TugasBesar2019/master/TugasBesar2019.postman_collection.json).
+[TugasBesar2019 postman_collection](/target/TugasBesar2019.postman_collection.json).
 ## Anggota Kelompok :
 
 * Andri Ardiansyah - 
