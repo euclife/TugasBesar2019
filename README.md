@@ -70,6 +70,7 @@ Berikut merupakan List API Untuk User Tidak Perlu Login Terlebih Dahulu
 45.13.132.233:3102/buku
 ```
 #### Mehtod : POST
+#### Level : ADMIN
 #### Parameter : 
 * name
 * halaman
@@ -81,6 +82,7 @@ Berikut merupakan List API Untuk User Tidak Perlu Login Terlebih Dahulu
 45.13.132.233:3102/buku
 ```
 #### Mehtod : PUT
+#### Level : ADMIN
 #### Parameter : 
 * id
 * name
@@ -93,8 +95,51 @@ Berikut merupakan List API Untuk User Tidak Perlu Login Terlebih Dahulu
 45.13.132.233:3102/buku
 ```
 #### Mehtod : DELETE
+#### Level : ADMIN
 #### Parameter : 
 * id
+
+### Cari Buku
+```url
+45.13.132.233:3102/buku/:id
+```
+#### Mehtod : GET
+#### Parameter : 
+* id
+
+### Tambah Kategori
+```url
+45.13.132.233:3102/category
+```
+#### Mehtod : POST
+#### Level : ADMIN
+#### Parameter : 
+* NamaCategory
+
+### Lihat Semua Category
+```url
+45.13.132.233:3102/category
+```
+#### Mehtod : GET
+
+### Order Buku
+```url
+45.13.132.233:3102/keranjang
+```
+#### Mehtod : POST
+#### Level : USER
+#### Parameter : 
+* bukuId
+
+
+### List Semua Order
+```url
+45.13.132.233:3102/keranjang
+```
+#### Mehtod : GET
+#### Parameter : 
+* bukuId
+
 
 
 
