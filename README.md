@@ -71,8 +71,8 @@ Add Buku
 ```url
 45.13.132.233:3102/buku
 ```
-* Mehtod : POST
-Parameter : 
+#### Mehtod : POST
+#### Parameter : 
 * name
 * halaman
 * harga
@@ -83,8 +83,8 @@ Update Buku
 ```url
 45.13.132.233:3102/buku
 ```
-* Mehtod : PUT
-Parameter : 
+#### Mehtod : PUT
+#### Parameter : 
 * id
 * name
 * halaman
@@ -96,8 +96,8 @@ Hapus Buku
 ```url
 45.13.132.233:3102/buku
 ```
-* Mehtod : DELETE
-Parameter : 
+#### Mehtod : DELETE
+#### Parameter : 
 * id
 
 
