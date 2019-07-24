@@ -7,7 +7,7 @@ Untuk List API file POSTMAN (tinggal di Import Saja di POSTMAN)
 [Download Disini Lalu Klik Kanan dan Save As](https://raw.githubusercontent.com/euclife/TugasBesar2019/master/TugasBesar2019.postman_collection.json).
 ## Anggota Kelompok :
 
-* Andri Ardiansyah - 
+* Andri Ardiansyah - 160613035
 * Chandra Ramdhan Purnama - 160613024
 * Fahrisal Fadlu Rohman - 160613004
 
